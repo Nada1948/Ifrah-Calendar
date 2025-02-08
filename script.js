@@ -37,7 +37,7 @@ function generateMonth(monthIndex) {
 
         // Highlight today's date (if it's in the current month)
         if (monthIndex === currentMonth && day === currentDay) {
-            dayCell.style.backgroundColor = "#3498db"; // Highlight today's day
+            dayCell.style.backgroundColor = "#e74c3c"; // Highlight today's day with red
             dayCell.style.color = "#fff";
         }
 
