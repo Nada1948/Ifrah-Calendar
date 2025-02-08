@@ -1,35 +1,53 @@
-const months = ["Month 1", "Month 2", "Month 3", "Month 4", "Month 5", "Month 6"];
-const daysInMonth = 11;
-const totalDays = 66;
+// Define the custom month names
+const monthNames = [
+    "Bunnuary", "Ifraduary", "March", "Poockleuary", "Ifracoon", "Loveober"
+];
 
-function getCurrentIfrahDay() {
-    const startDate = new Date("2024-08-19"); // Start date of Ifrah Calendar
-    const today = new Date();
-    const daysSinceStart = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
-    return daysSinceStart % totalDays;
-}
+// Get the current date
+const today = new Date();
 
+// Get today's month and day
+const currentMonth = today.getMonth(); // 0-based (January is 0, February is 1, etc.)
+const currentDay = today.getDate();
+
+// Function to generate the calendar
 function generateCalendar() {
-    const calendarContainer = document.getElementById("calendar");
-    let dayCounter = 0;
+    const calendarDiv = document.getElementById("calendar");
 
-    months.forEach(month => {
-        const monthLabel = document.createElement("div");
-        monthLabel.className = "month";
-        monthLabel.textContent = month;
-        calendarContainer.appendChild(monthLabel);
+    // Set the current month
+    let currentMonthIndex = 0;
 
-        for (let day = 1; day <= daysInMonth; day++) {
-            const dayElement = document.createElement("div");
-            dayElement.className = "day";
-            dayElement.textContent = `Day ${day}`;
-            if (dayCounter === getCurrentIfrahDay()) {
-                dayElement.classList.add("active");
+    // Loop through each month (since there are 6 months in your calendar)
+    for (let monthIndex = 0; monthIndex < 6; monthIndex++) {
+        // Create the header for each month
+        const monthHeader = document.createElement("div");
+        monthHeader.className = "month-header";
+        monthHeader.innerText = monthNames[monthIndex];
+
+        // Create the days for each month (11 days per month)
+        const monthGrid = document.createElement("div");
+        monthGrid.className = "month-grid";
+        
+        for (let day = 1; day <= 11; day++) {
+            const dayCell = document.createElement("div");
+            dayCell.className = "cell";
+
+            // Set the day number
+            dayCell.innerText = day;
+
+            // Highlight today's day (Month 1, Day 1)
+            if (monthIndex === currentMonth && day === currentDay) {
+                dayCell.style.backgroundColor = "#bb4a57"; // Highlight today
+                dayCell.style.color = "#fff";
             }
-            calendarContainer.appendChild(dayElement);
-            dayCounter++;
+
+            monthGrid.appendChild(dayCell);
         }
-    });
+
+        calendarDiv.appendChild(monthHeader);
+        calendarDiv.appendChild(monthGrid);
+    }
 }
 
+// Call the function to generate the calendar when the page loads
 generateCalendar();
