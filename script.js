@@ -3,51 +3,60 @@ const monthNames = [
     "Bunnuary", "Ifraduary", "March", "Poockleuary", "Ifracoon", "Loveober"
 ];
 
-// Get the current date
-const today = new Date();
+// Define the number of days in each month (11 days per month)
+const daysInMonth = 11;
 
-// Get today's month and day
+// Get today's date
+const today = new Date();
 const currentMonth = today.getMonth(); // 0-based (January is 0, February is 1, etc.)
 const currentDay = today.getDate();
 
-// Function to generate the calendar
-function generateCalendar() {
-    const calendarDiv = document.getElementById("calendar");
+// Track the current month index
+let currentMonthIndex = currentMonth;
 
-    // Set the current month
-    let currentMonthIndex = 0;
+// Function to generate a specific month's calendar
+function generateMonth(monthIndex) {
+    const monthDiv = document.getElementById("calendar-month");
+    monthDiv.innerHTML = ""; // Clear previous month content
 
-    // Loop through each month (since there are 6 months in your calendar)
-    for (let monthIndex = 0; monthIndex < 6; monthIndex++) {
-        // Create the header for each month
-        const monthHeader = document.createElement("div");
-        monthHeader.className = "month-header";
-        monthHeader.innerText = monthNames[monthIndex];
+    // Set the header for the current month
+    const monthHeader = document.createElement("div");
+    monthHeader.className = "month-header";
+    monthHeader.innerText = monthNames[monthIndex];
 
-        // Create the days for each month (11 days per month)
-        const monthGrid = document.createElement("div");
-        monthGrid.className = "month-grid";
-        
-        for (let day = 1; day <= 11; day++) {
-            const dayCell = document.createElement("div");
-            dayCell.className = "cell";
+    monthDiv.appendChild(monthHeader);
 
-            // Set the day number
-            dayCell.innerText = day;
+    // Create the grid for the month's days (11 days per month)
+    const monthGrid = document.createElement("div");
+    monthGrid.className = "grid";
 
-            // Highlight today's day (Month 1, Day 1)
-            if (monthIndex === currentMonth && day === currentDay) {
-                dayCell.style.backgroundColor = "#bb4a57"; // Highlight today
-                dayCell.style.color = "#fff";
-            }
+    for (let day = 1; day <= daysInMonth; day++) {
+        const dayCell = document.createElement("div");
+        dayCell.className = "cell";
+        dayCell.innerText = day;
 
-            monthGrid.appendChild(dayCell);
+        // Highlight today's date (if it's in the current month)
+        if (monthIndex === currentMonth && day === currentDay) {
+            dayCell.style.backgroundColor = "#3498db"; // Highlight today's day
+            dayCell.style.color = "#fff";
         }
 
-        calendarDiv.appendChild(monthHeader);
-        calendarDiv.appendChild(monthGrid);
+        monthGrid.appendChild(dayCell);
     }
+
+    monthDiv.appendChild(monthGrid);
 }
 
-// Call the function to generate the calendar when the page loads
-generateCalendar();
+// Handle the "Next" and "Previous" month navigation
+document.getElementById("next").addEventListener("click", function() {
+    currentMonthIndex = (currentMonthIndex + 1) % 6; // Wrap around to the first month after the last one
+    generateMonth(currentMonthIndex);
+});
+
+document.getElementById("prev").addEventListener("click", function() {
+    currentMonthIndex = (currentMonthIndex - 1 + 6) % 6; // Wrap around to the last month before the first one
+    generateMonth(currentMonthIndex);
+});
+
+// Initial month display
+generateMonth(currentMonthIndex);
