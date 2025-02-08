@@ -7,14 +7,16 @@
 
 body {
     font-family: 'Courier New', Courier, monospace;
-    background-color: #f4f4f4;  /* Light background */
-    color: #333;  /* Dark text */
+    background-image: url('https://example.com/vampire-house-bg.jpg');  /* Replace with your vampire background image */
+    background-size: cover;
+    background-position: center;
+    color: #eee;  /* Light gray text to contrast dark background */
     font-size: 18px;
     line-height: 1.6;
     padding: 20px;
+    height: 100vh;
 }
 
-/* Header Styles */
 header {
     text-align: center;
     margin-bottom: 30px;
@@ -22,12 +24,12 @@ header {
 
 h1 {
     font-size: 48px;
-    color: #2c3e50;  /* Darker text for title */
+    color: #e74c3c;  /* Blood-red text color */
     text-transform: uppercase;
     letter-spacing: 3px;
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.7);
 }
 
-/* Calendar Styles */
 #month-container {
     display: flex;
     justify-content: center;
@@ -36,10 +38,10 @@ h1 {
 }
 
 #calendar-month {
-    background-color: #fff; /* White background for the month */
+    background-color: rgba(0, 0, 0, 0.7);  /* Dark background with some transparency */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
     text-align: center;
     width: 300px;
 }
@@ -47,6 +49,7 @@ h1 {
 #calendar-month .month-header {
     font-size: 30px;
     font-weight: bold;
+    color: #e74c3c; /* Blood-red color for the month name */
     margin-bottom: 20px;
 }
 
@@ -57,22 +60,21 @@ h1 {
 }
 
 .cell {
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: #2c3e50; /* Dark gray for the calendar cells */
+    color: #fff;
     text-align: center;
     padding: 20px;
     border-radius: 5px;
     font-size: 20px;
+    transition: background-color 0.3s ease;
 }
 
 .cell:hover {
-    background-color: #3498db;
-    color: #fff;
+    background-color: #e74c3c; /* Red when hovered over */
 }
 
-/* Navigation Buttons */
 .nav-button {
-    background-color: #3498db;
+    background-color: #8e44ad;
     color: white;
     font-size: 20px;
     padding: 10px;
@@ -80,10 +82,11 @@ h1 {
     border-radius: 5px;
     cursor: pointer;
     margin: 0 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
 }
 
 .nav-button:hover {
-    background-color: #2980b9;
+    background-color: #9b59b6;
 }
 
 /* Container Styles */
