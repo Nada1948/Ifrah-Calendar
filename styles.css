@@ -7,8 +7,8 @@
 
 body {
     font-family: 'Courier New', Courier, monospace;
-    background-color: #121212;  /* Dark background for gothic feel */
-    color: #f1f1f1;  /* Light text color for contrast */
+    background-color: #f4f4f4;  /* Light background */
+    color: #333;  /* Dark text */
     font-size: 18px;
     line-height: 1.6;
     padding: 20px;
@@ -22,67 +22,81 @@ header {
 
 h1 {
     font-size: 48px;
-    color: #bb4a57;  /* Dark red accent */
+    color: #2c3e50;  /* Darker text for title */
     text-transform: uppercase;
     letter-spacing: 3px;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
 }
 
-h2 {
-    font-size: 30px;
-    color: #9b4b4b;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-    text-align: center;
-}
-
-/* Calendar Grid Styles */
-#calendar {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 10px;
+/* Calendar Styles */
+#month-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 20px;
 }
 
-/* Calendar Cells */
-.cell {
-    background-color: #2c2c2c; /* Dark background for calendar cells */
-    color: #e6e6e6; /* Light gray text */
-    text-align: center;
+#calendar-month {
+    background-color: #fff; /* White background for the month */
     padding: 20px;
     border-radius: 10px;
-    font-size: 22px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+#calendar-month .month-header {
+    font-size: 30px;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+#calendar-month .grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.cell {
+    background-color: #f0f0f0;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 20px;
 }
 
 .cell:hover {
-    background-color: #bb4a57; /* Dark red when hovering over a cell */
+    background-color: #3498db;
     color: #fff;
 }
 
-/* Links */
-a {
-    color: #bb4a57;
-    text-decoration: none;
+/* Navigation Buttons */
+.nav-button {
+    background-color: #3498db;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 20px;
 }
 
-a:hover {
-    text-decoration: underline;
+.nav-button:hover {
+    background-color: #2980b9;
 }
 
+/* Container Styles */
 .container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
-    background-color: #1f1f1f;
-    border-radius: 15px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
 }
 
 /* Footer */
 footer {
     text-align: center;
     margin-top: 50px;
-    color: #9b4b4b;
+    color: #2c3e50;
 }
