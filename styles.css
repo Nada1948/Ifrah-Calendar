@@ -5,13 +5,10 @@
     box-sizing: border-box;
 }
 
-/* Full-Screen Background */
+/* Full-Screen Gothic Background */
 body {
     font-family: 'Courier New', Courier, monospace;
-    background-image: url('https://cdn.pixabay.com/photo/2015/08/28/11/28/halloween-912999_1280.jpg'); /* Replace with any gothic castle */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background: linear-gradient(135deg, #222222, #7b1f3f); /* Gothic-themed gradient */
     color: white;
     text-align: center;
     height: 100vh;
@@ -19,6 +16,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 /* Calendar Box */
@@ -62,6 +60,7 @@ body {
     border-radius: 10px;
     transition: 0.3s ease-in-out;
     box-shadow: 0px 0px 8px rgba(255, 0, 0, 0.5);
+    cursor: pointer;
 }
 
 /* Hover effect */
@@ -87,4 +86,22 @@ body {
 .nav-button:hover {
     background-color: #9b59b6;
     transform: scale(1.1);
+}
+
+/* Day Note Styling */
+.note-box {
+    background: rgba(255, 255, 255, 0.8);
+    color: #222;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 18px;
+    width: 320px;
+    display: none;
+}
+
+/* Note Header */
+.note-header {
+    font-weight: bold;
+    color: #e74c3c;
 }
