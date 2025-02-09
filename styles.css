@@ -1,35 +1,35 @@
-/* Global Styles */
+/* Reset and Global Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Apply Gothic Vampire House Background */
 body {
     font-family: 'Courier New', Courier, monospace;
-    background-image: url('https://example.com/vampire-house-bg.jpg');  /* Replace with your vampire background image */
+    background-image: url('https://cdn.pixabay.com/photo/2015/08/28/11/28/halloween-912999_1280.jpg'); /* Replace with a gothic vampire house image */
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     color: #eee;
-    font-size: 18px;
-    line-height: 1.6;
-    padding: 20px;
-    height: 100vh;
-}
-
-header {
     text-align: center;
-    margin-bottom: 30px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+/* Header */
 h1 {
-    font-size: 48px;
-    color: #e74c3c;
+    font-size: 42px;
+    color: #e74c3c;  /* Blood red */
     text-transform: uppercase;
-    letter-spacing: 3px;
-    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.7);
+    text-shadow: 3px 3px 10px black;
 }
 
+/* Month Container */
 #month-container {
     display: flex;
     justify-content: center;
@@ -37,69 +37,71 @@ h1 {
     margin-top: 20px;
 }
 
+/* Calendar Box */
 #calendar-month {
-    background-color: rgba(0, 0, 0, 0.7);  /* Dark background */
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background */
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.7); /* Red glow */
     text-align: center;
-    width: 300px;
+    width: 350px;
 }
 
-#calendar-month .month-header {
+/* Month Header */
+.month-header {
     font-size: 30px;
     font-weight: bold;
     color: #e74c3c;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 8px black;
 }
 
-#calendar-month .grid {
+/* Grid for Days */
+.grid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for 11-day months */
+    gap: 10px;
+    padding: 10px;
+    justify-items: center;
 }
 
+/* Individual Day Box */
 .cell {
-    background-color: #2c3e50; 
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    border-radius: 5px;
-    font-size: 20px;
-    transition: background-color 0.3s ease;
+    background-color: #222; /* Dark gray */
+    color: white;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 0px 8px rgba(255, 0, 0, 0.5); /* Red glow */
 }
 
+/* Hover effect */
 .cell:hover {
-    background-color: #e74c3c; /* Red when hovered */
+    background-color: #e74c3c; /* Blood red */
+    transform: scale(1.1);
 }
 
+/* Navigation Buttons */
 .nav-button {
     background-color: #8e44ad;
     color: white;
     font-size: 20px;
-    padding: 10px;
+    padding: 12px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin: 0 20px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
+    transition: 0.3s;
 }
 
 .nav-button:hover {
     background-color: #9b59b6;
-}
-
-/* Container Styles */
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    margin-top: 50px;
-    color: #2c3e50;
+    transform: scale(1.1);
 }
