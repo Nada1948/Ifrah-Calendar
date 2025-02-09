@@ -7,22 +7,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Ifrah Calendar</h1>
-        </header>
 
-        <div id="month-container">
-            <button id="prev" class="nav-button">&#9664;</button>
-            
-            <div id="calendar-month">
-                <!-- Month content will go here -->
-            </div>
+    <h1>Ifrah Calendar</h1>
 
-            <button id="next" class="nav-button">&#9654;</button>
-        </div>
-
+    <div id="month-container">
+        <button class="nav-button" id="prev">⬅️ Prev</button>
+        <div id="calendar-month"></div>
+        <button class="nav-button" id="next">Next ➡️</button>
     </div>
+
+    <!-- Note box that appears when a day is clicked -->
+    <div id="note-box" class="note-box">
+        <div id="note-header" class="note-header"></div>
+        <div id="note-text"></div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
