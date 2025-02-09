@@ -22,7 +22,15 @@ const messages = [
     "I miss you"
 ];
 
-// Function to generate calendar
+// Function to get today’s date
+function getToday() {
+    const today = new Date();
+    const todayDay = today.getDate();  // Get the current day of the month
+    const todayMonth = today.getMonth();  // Get the current month (0-5 for your custom months)
+    return { todayDay, todayMonth };
+}
+
+// Function to generate the calendar for the current month
 function generateMonth(monthIndex) {
     const monthDiv = document.getElementById("calendar-month");
     monthDiv.innerHTML = "";
@@ -37,20 +45,32 @@ function generateMonth(monthIndex) {
     const monthGrid = document.createElement("div");
     monthGrid.className = "grid";
 
+    // Get today's date
+    const { todayDay, todayMonth } = getToday();
+
+    // Generate each day cell
     for (let day = 1; day <= daysInMonth; day++) {
         const dayCell = document.createElement("div");
         dayCell.className = "cell";
         dayCell.innerText = day;
+
+        // Highlight today's date
+        if (monthIndex === todayMonth && day === todayDay) {
+            dayCell.style.backgroundColor = "#e74c3c"; // Red background for today
+            dayCell.style.color = "#fff"; // White text for today
+        }
+
         dayCell.onclick = function () {
             showNoteForDay(day);
         };
+
         monthGrid.appendChild(dayCell);
     }
 
     monthDiv.appendChild(monthGrid);
 }
 
-// Function to show note for day
+// Function to show note for a specific day
 function showNoteForDay(day) {
     const noteBox = document.getElementById("note-box");
     const noteHeader = document.getElementById("note-header");
@@ -68,7 +88,7 @@ function showNoteForDay(day) {
     noteBox.style.display = "block";
 }
 
-// Handle navigation
+// Handle navigation to next/prev month
 document.getElementById("next").addEventListener("click", function () {
     currentMonthIndex = (currentMonthIndex + 1) % 6;
     generateMonth(currentMonthIndex);
@@ -79,5 +99,5 @@ document.getElementById("prev").addEventListener("click", function () {
     generateMonth(currentMonthIndex);
 });
 
-// Initialize first month
+// Initialize the calendar with the current month
 generateMonth(currentMonthIndex);
