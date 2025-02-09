@@ -1,18 +1,18 @@
-/* Reset and Global Styles */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Apply Gothic Vampire House Background */
+/* Full-Screen Background */
 body {
     font-family: 'Courier New', Courier, monospace;
-    background-image: url('https://cdn.pixabay.com/photo/2015/08/28/11/28/halloween-912999_1280.jpg'); /* Replace with a gothic vampire house image */
+    background-image: url('https://cdn.pixabay.com/photo/2015/08/28/11/28/halloween-912999_1280.jpg'); /* Replace with any gothic castle */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    color: #eee;
+    color: white;
     text-align: center;
     height: 100vh;
     display: flex;
@@ -21,56 +21,39 @@ body {
     align-items: center;
 }
 
-/* Header */
-h1 {
-    font-size: 42px;
-    color: #e74c3c;  /* Blood red */
-    text-transform: uppercase;
-    text-shadow: 3px 3px 10px black;
-}
-
-/* Month Container */
-#month-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-}
-
 /* Calendar Box */
 #calendar-month {
-    background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+    background: rgba(0, 0, 0, 0.85); /* Dark transparent box */
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.7); /* Red glow */
+    box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.7);
     text-align: center;
-    width: 350px;
+    width: 370px;
 }
 
 /* Month Header */
 .month-header {
-    font-size: 30px;
+    font-size: 28px;
     font-weight: bold;
     color: #e74c3c;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     text-shadow: 2px 2px 8px black;
 }
 
 /* Grid for Days */
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns for 11-day months */
-    gap: 10px;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 8px;
     padding: 10px;
-    justify-items: center;
 }
 
 /* Individual Day Box */
 .cell {
     background-color: #222; /* Dark gray */
     color: white;
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -78,12 +61,12 @@ h1 {
     font-weight: bold;
     border-radius: 10px;
     transition: 0.3s ease-in-out;
-    box-shadow: 0px 0px 8px rgba(255, 0, 0, 0.5); /* Red glow */
+    box-shadow: 0px 0px 8px rgba(255, 0, 0, 0.5);
 }
 
 /* Hover effect */
 .cell:hover {
-    background-color: #e74c3c; /* Blood red */
+    background-color: #e74c3c;
     transform: scale(1.1);
 }
 
@@ -92,12 +75,12 @@ h1 {
     background-color: #8e44ad;
     color: white;
     font-size: 20px;
-    padding: 12px;
+    padding: 10px 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 0 20px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
+    margin: 15px;
+    box-shadow: 0px 0px 10px rgba(255, 0, 255, 0.5);
     transition: 0.3s;
 }
 
