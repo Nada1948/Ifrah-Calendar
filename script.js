@@ -1,27 +1,24 @@
-// Define custom months
+// Define months
 const monthNames = [
     "Bunnuary", "Ifraduary", "March", "Poockleuary", "Ifracoon", "Loveober"
 ];
 
-// Define the number of days in each month (11 days per month)
-const daysInMonth = 11;
+const daysInMonth = 11; // Each month has 11 days
 
-// Track the current month index
-let currentMonthIndex = 0;
+let currentMonthIndex = 0; // Start at the first month
 
-// Function to generate a specific month's calendar
+// Function to generate calendar
 function generateMonth(monthIndex) {
     const monthDiv = document.getElementById("calendar-month");
-    monthDiv.innerHTML = ""; // Clear previous month content
+    monthDiv.innerHTML = "";
 
-    // Set the header for the current month
+    // Month title
     const monthHeader = document.createElement("div");
     monthHeader.className = "month-header";
     monthHeader.innerText = monthNames[monthIndex];
-
     monthDiv.appendChild(monthHeader);
 
-    // Create the grid for the month's days
+    // Create grid
     const monthGrid = document.createElement("div");
     monthGrid.className = "grid";
 
@@ -29,23 +26,22 @@ function generateMonth(monthIndex) {
         const dayCell = document.createElement("div");
         dayCell.className = "cell";
         dayCell.innerText = day;
-
         monthGrid.appendChild(dayCell);
     }
 
     monthDiv.appendChild(monthGrid);
 }
 
-// Handle Next and Previous month navigation
-document.getElementById("next").addEventListener("click", function() {
-    currentMonthIndex = (currentMonthIndex + 1) % 6; // Wrap around
+// Handle navigation
+document.getElementById("next").addEventListener("click", function () {
+    currentMonthIndex = (currentMonthIndex + 1) % 6;
     generateMonth(currentMonthIndex);
 });
 
-document.getElementById("prev").addEventListener("click", function() {
-    currentMonthIndex = (currentMonthIndex - 1 + 6) % 6; // Wrap around
+document.getElementById("prev").addEventListener("click", function () {
+    currentMonthIndex = (currentMonthIndex - 1 + 6) % 6;
     generateMonth(currentMonthIndex);
 });
 
-// Initialize Calendar
+// Initialize first month
 generateMonth(currentMonthIndex);
