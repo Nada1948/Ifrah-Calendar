@@ -1,4 +1,4 @@
-// Define the custom month names
+// Define custom months
 const monthNames = [
     "Bunnuary", "Ifraduary", "March", "Poockleuary", "Ifracoon", "Loveober"
 ];
@@ -6,13 +6,8 @@ const monthNames = [
 // Define the number of days in each month (11 days per month)
 const daysInMonth = 11;
 
-// Get today's date
-const today = new Date();
-const currentMonth = today.getMonth(); // 0-based (January is 0, February is 1, etc.)
-const currentDay = today.getDate();
-
 // Track the current month index
-let currentMonthIndex = currentMonth;
+let currentMonthIndex = 0;
 
 // Function to generate a specific month's calendar
 function generateMonth(monthIndex) {
@@ -26,7 +21,7 @@ function generateMonth(monthIndex) {
 
     monthDiv.appendChild(monthHeader);
 
-    // Create the grid for the month's days (11 days per month)
+    // Create the grid for the month's days
     const monthGrid = document.createElement("div");
     monthGrid.className = "grid";
 
@@ -35,28 +30,22 @@ function generateMonth(monthIndex) {
         dayCell.className = "cell";
         dayCell.innerText = day;
 
-        // Highlight today's date (if it's in the current month)
-        if (monthIndex === currentMonth && day === currentDay) {
-            dayCell.style.backgroundColor = "#e74c3c"; // Highlight today's day with red
-            dayCell.style.color = "#fff";
-        }
-
         monthGrid.appendChild(dayCell);
     }
 
     monthDiv.appendChild(monthGrid);
 }
 
-// Handle the "Next" and "Previous" month navigation
+// Handle Next and Previous month navigation
 document.getElementById("next").addEventListener("click", function() {
-    currentMonthIndex = (currentMonthIndex + 1) % 6; // Wrap around to the first month after the last one
+    currentMonthIndex = (currentMonthIndex + 1) % 6; // Wrap around
     generateMonth(currentMonthIndex);
 });
 
 document.getElementById("prev").addEventListener("click", function() {
-    currentMonthIndex = (currentMonthIndex - 1 + 6) % 6; // Wrap around to the last month before the first one
+    currentMonthIndex = (currentMonthIndex - 1 + 6) % 6; // Wrap around
     generateMonth(currentMonthIndex);
 });
 
-// Initial month display
+// Initialize Calendar
 generateMonth(currentMonthIndex);
